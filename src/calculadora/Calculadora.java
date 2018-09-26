@@ -30,13 +30,13 @@ public class Calculadora {
         System.out.println("2.- : ");
         segonnum = sc.nextInt();
 
-        while (opcion > 5 || opcion < 0) {
-            System.out.println("Que quiere hacer (escriba solo el numero):"
-                    + "0.- Salir."
-                    + "1.- Sumar."
-                    + "2.- Restar."
-                    + "3.- Multiplicar."
-                    + "4.- Dividir.-");
+        while (opcion < 5) {
+            System.out.println("Que quiere hacer (escriba solo el numero):\n"
+                    + "0.- Salir.\n"
+                    + "1.- Sumar.\n"
+                    + "2.- Restar.\n"
+                    + "3.- Multiplicar.\n"
+                    + "4.- Dividir.\n");
             opcion = sc.nextInt();
             switch (opcion) {
                 case 1:
@@ -44,6 +44,10 @@ public class Calculadora {
                     break;
                 case 2:
                     resultado = restar(primernum, segonnum);
+                    break;
+                case 3:
+                    resultado = mutiplicar(primernum, segonnum);
+                    break;
             }
 
             System.out.println("El resultado es: " + resultado);
@@ -57,6 +61,10 @@ public class Calculadora {
 
     private static float restar(float a, float b) {
         return a - b;
+    }
+    
+    private static float mutiplicar(float a, float b) {
+        return a * b;
     }
 
 }
