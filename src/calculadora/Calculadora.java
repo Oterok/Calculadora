@@ -48,11 +48,14 @@ public class Calculadora {
                 case 3:
                     resultado = mutiplicar(numero1, numero2);
                     break;
+                case 4:
+                    resultado = dividir(numero1, numero2);
+                    break;
             }
-
-            System.out.println("El resultado es: " + resultado);
+            if(opcion<5){
+                System.out.println("El resultado es: " + resultado);
+            }
         }
-
     }
 
     private static float suma(float a, float b) {
@@ -65,6 +68,10 @@ public class Calculadora {
     
     private static float mutiplicar(float a, float b) {
         return a * b;
+    }
+    
+    private static float dividir(float a, float b) {
+        return a / b;
     }
 
 }
