@@ -5,6 +5,8 @@
  */
 package calculadora;
 
+import java.util.Scanner;
+
 /**
  *
  * @author David
@@ -15,7 +17,18 @@ public class Calculadora {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
+        Scanner sc = new Scanner(System.in);
+     
+        int primernum, segonnum;
+        
+        System.out.println("Pera empezar introduzca dos numeros:");
+        
+        System.out.println("Primer numero: ");
+         primernum= sc.nextInt();
+         
+         System.out.println("Segon numero: ");
+         segonnum= sc.nextInt();
+        
     }
     
 }
