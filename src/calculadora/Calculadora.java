@@ -19,16 +19,16 @@ public class Calculadora {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 
-        float primernum, segonnum, resultado = 0;
+        float numero1, numero2, resultado = 0;
         int opcion=1;
 
         System.out.println("Para empezar introduzca dos numeros:");
 
         System.out.println("1.- : ");
-        primernum = sc.nextInt();
+        numero1 = sc.nextInt();
 
         System.out.println("2.- : ");
-        segonnum = sc.nextInt();
+        numero2 = sc.nextInt();
 
         while (opcion < 5) {
             System.out.println("Que quiere hacer (escriba solo el numero):\n"
@@ -40,13 +40,13 @@ public class Calculadora {
             opcion = sc.nextInt();
             switch (opcion) {
                 case 1:
-                    resultado = suma(primernum, segonnum);
+                    resultado = suma(numero1, numero2);
                     break;
                 case 2:
-                    resultado = restar(primernum, segonnum);
+                    resultado = restar(numero1, numero2);
                     break;
                 case 3:
-                    resultado = mutiplicar(primernum, segonnum);
+                    resultado = mutiplicar(numero1, numero2);
                     break;
             }
 
