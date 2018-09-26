@@ -18,17 +18,45 @@ public class Calculadora {
      */
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-     
-        int primernum, segonnum;
-        
-        System.out.println("Pera empezar introduzca dos numeros:");
-        
-        System.out.println("Primer numero: ");
-         primernum= sc.nextInt();
-         
-         System.out.println("Segon numero: ");
-         segonnum= sc.nextInt();
-        
+
+        float primernum, segonnum, resultado = 0;
+        int opcion=1;
+
+        System.out.println("Para empezar introduzca dos numeros:");
+
+        System.out.println("1.- : ");
+        primernum = sc.nextInt();
+
+        System.out.println("2.- : ");
+        segonnum = sc.nextInt();
+
+        while (opcion > 5 || opcion < 0) {
+            System.out.println("Que quiere hacer (escriba solo el numero):"
+                    + "0.- Salir."
+                    + "1.- Sumar."
+                    + "2.- Restar."
+                    + "3.- Multiplicar."
+                    + "4.- Dividir.-");
+            opcion = sc.nextInt();
+            switch (opcion) {
+                case 1:
+                    resultado = suma(primernum, segonnum);
+                    break;
+                case 2:
+                    resultado = restar(primernum, segonnum);
+            }
+
+            System.out.println("El resultado es: " + resultado);
+        }
+
     }
-    
+
+    private static float suma(float a, float b) {
+        return a + b;
+    }
+
+    private static float restar(float a, float b) {
+        return a - b;
+    }
+
 }
