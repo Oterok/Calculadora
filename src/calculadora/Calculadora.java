@@ -5,6 +5,7 @@
  */
 package calculadora;
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 /**
@@ -18,20 +19,18 @@ public class Calculadora {
      */
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-
-        float numero1, numero2, resultado = 0;
-        int opcion=1;
+        float numero1 = 0, numero2 = 0, resultado = 0;
+        int opcion = 1;
 
         System.out.println("Para empezar introduzca dos numeros:");
 
-        System.out.println("1.- : ");
-        numero1 = sc.nextInt();
+        numero1 = escribirNum();
 
-        System.out.println("2.- : ");
-        numero2 = sc.nextInt();
+        numero2 = escribirNum();
 
-        while (opcion < 5) {
-            System.out.println("Que quiere hacer (escriba solo el numero):\n"
+        while (opcion != 0) {
+            System.out.println("---------------------------------\n\n"
+                    + "Que quiere hacer (escriba solo el numero):\n"
                     + "0.- Salir.\n"
                     + "1.- Sumar.\n"
                     + "2.- Restar.\n"
@@ -52,7 +51,7 @@ public class Calculadora {
                     resultado = dividir(numero1, numero2);
                     break;
             }
-            if(opcion<5){
+            if (opcion != 0) {
                 System.out.println("El resultado es: " + resultado);
             }
         }
@@ -65,13 +64,29 @@ public class Calculadora {
     private static float restar(float a, float b) {
         return a - b;
     }
-    
+
     private static float mutiplicar(float a, float b) {
         return a * b;
     }
-    
+
     private static float dividir(float a, float b) {
+        if (b == 0) {
+            System.out.println("No es pot dividir per 0.");
+        }
         return a / b;
     }
 
+    private static float escribirNum() {
+        Scanner sc = new Scanner(System.in);
+        float num = 0;
+        try {
+            System.out.print("Escribir numero: ");
+            num = sc.nextInt();
+        } catch (InputMismatchException e) {
+            System.out.println("Lo sentimos el valor ingresado no es valido, verifique");
+            escribirNum();
+        }
+
+        return num;
+    }
 }
